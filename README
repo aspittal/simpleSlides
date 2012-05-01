@@ -1,0 +1,75 @@
+Simple Slides v1.0
+Written By: Andrew Spittal
+Date: May 1st 2012
+Description: A simple plugin which ties into a pre-formatted 
+DOM with slides, next and previous buttons. This plugin does not add
+buttons or slides for you, which gives you full control over how it looks.
+The elements can be any class name if you pass in the alternate class names as options.
+This plugin currently is a proof of concept and may be extended in the future to:
+ - Add buttons automatically if required
+ - Allow custom animation to be passed in for changing between slides
+ - A way of adding a jump to any slide pager
+
+Requirements:
+jQuery 1.6+ (I haven't tested on older versions)
+
+Default Options:
+slide: '.slide' - The class name for the div of slide
+nextSlide: '.nextSlide' - The class name for the next slide button
+previousSlide: '.previousSlide' - The class name for the previous slide button
+
+Assumptions:
+Buttons are contained within a 'slide' div
+
+Example Usage:
+
+Just download the js file and include it in your <head> as you do with any javascript.
+Make sure you have jQuery1.6+ included as well.
+
+--HTML Example--
+
+<div class="presentation"> 
+     <div class="slide">
+         <!-- Slide Content -->
+         <button class="nextSlide">Next</button>
+     </div>
+     <div class="slide">
+         <!-- Slide Content -->
+         <button class="previousSlide">Back</button>
+         <button class="nextSlide">Next</button>
+     </div>
+     <div class="slide">
+         <!-- Slide Content -->
+         <button class="nextSlide">Next</button>
+     </div>
+</div>
+
+----------
+
+--jQuery--
+
+$(document).ready( function() {
+     $('.presentation').simpleSlides();
+});
+
+----------
+
+If you would like to use different names for the slide or buttons,
+just pass a parameter when you initialize the plugin.
+
+--jQuery With non-defaults--
+
+$(document).ready( function() {
+    $('.presentation').simpleSlides(
+        {
+            slide: '.mySlideClass',
+            previousSlide: '.myPreviousButton',
+            nextSlide: '.myNextButton'
+        }
+    );
+});
+
+----------
+
+ChangeLog:
+May 1st 2012: First Release - Basic Functionality
